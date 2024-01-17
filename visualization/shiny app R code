@@ -1,0 +1,43 @@
+###shiny app
+# Define the user interface
+ui <- fluidPage(
+  titlePanel("BMI Distribution by Rice Eating Frequency"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("frequency", "Select Rice Eating Frequency:",
+                  choices = c("never", "1-6 times/year", "7-11 times/year", 
+                              "1 time/month", "2-3 times/month", "1 time/week",
+                              "2 times/week", "3-4 times/week", "5-6 times/week",
+                              "1 time/day", "2 times/day")),
+      sliderInput("bins", "Number of BMI Bins:", min = 2, max = 100, value = 2)
+    ),
+    mainPanel(plotOutput("bmiDistPlot"))
+  )
+)
+
+# Define server logic
+server <- function(input, output) {
+  output$bmiDistPlot <- renderPlot({
+    # Define dynamic BMI breaks based on slider input
+    bmi_breaks <- seq(10, 50, length.out = input$bins + 1)
+    
+    # Map the frequency labels to actual data values if necessary
+    freq_map <- setNames(1:11, c("never", "1-6 times/year", "7-11 times/year", 
+                                 "1 time/month", "2-3 times/month", "1 time/week",
+                                 "2 times/week", "3-4 times/week", "5-6 times/week",
+                                 "1 time/day", "2 times/day"))
+    
+    # Filter data based on selected frequency
+    filtered_data <- data_clean[data_cleanFFQ0058==freqmap[[inputFFQ0058 == freq_map[[inputfrequency]], ]
+    # Create the histogram
+    ggplot(filtered_data, aes(x = cut(BMXBMI, breaks = bmi_breaks, include.lowest = TRUE))) +
+      geom_bar(fill='blue', color='black') +
+      ggtitle(paste("BMI Distribution for", input$frequency, "Rice Eating Frequency")) +
+      xlab("BMI Ranges") +
+      ylab("Frequency") +
+      scale_x_discrete(labels = levels(cut(data_clean$BMXBMI, breaks = bmi_breaks, include.lowest = TRUE))) +
+      theme_minimal() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  })
+}
+shinyApp(ui = ui, server = server)
