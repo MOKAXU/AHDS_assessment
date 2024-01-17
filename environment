@@ -1,0 +1,16 @@
+
+Computational Environment Record
+
+Operating System: 
+- Primary OS: Windows 11, 64-bit Operating System, x64-based processor.
+- Secondary OS (via WSL or dual-boot): Ubuntu, Version 22.04.3.49.0.
+
+Programming Language:
+- R, Version 4.3.1.
+
+Dependencies:
+ggplot2: Used for creating complex and aesthetically pleasing data visualisations.
+readxl: Utilised for reading Excel files.
+shiny: Employed for building interactive web applications directly from R.
+dplyr: Utilised for data manipulation and transformation.
+tidyr: Used for data tidying.
