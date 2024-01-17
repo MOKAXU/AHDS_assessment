@@ -9,23 +9,16 @@ AHDS_assessment2_2388064/
 │   ├── clean.xlsx*
 │   └── README*
 ├── code
-│   ├──
-│   ├── 
-│   ├── 
-│   └── report.Rmd
+│   └── Rscript*
 ├── raw
 │   ├── BMI.csv
-│   ├── DEMO_D.csv
 │   └── FFQRAW_D.csv
 ├── visualisation
-│   ├── app.R
-│   ├── grid-scatter-plot.png*
-│   ├── prevalence-ratio.png*
-│   └── READme.md
+│   ├── shiny app R code
+│   ├── clean.xlsx
+│   └── shiny visualization
 ├── report
-│   ├── app.R
-│   ├── grid-scatter-plot.png*
-│   ├── prevalence-ratio.png*
-│   └── READm
+│   ├── Report.pdf
+│   └── README
 └── READme.md
 ```
